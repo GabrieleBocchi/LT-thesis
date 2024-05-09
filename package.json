@@ -18,7 +18,7 @@
     "@cspell/dict-markdown": "^2.0.1",
     "@cspell/dict-npm": "^5.0.14",
     "cspell": "^8.7.0",
-    "npm-run-all2": "^5.0.0",
+    "npm-run-all2": "^6.0.0",
     "prettier": "^3.2.2",
     "prettier-plugin-latex": "^2.0.1",
     "shx": "^0.3.4"
