@@ -1,6 +1,6 @@
 {
   "version": "0.2",
-  "language": "en",
+  "language": ["en", "it"],
   "useGitignore": true,
   "import": [
     "@cspell/dict-en_us/cspell-ext.json",
@@ -9,14 +9,11 @@
     "@cspell/dict-markdown/cspell-ext.json",
     "@cspell/dict-npm/cspell-ext.json"
   ],
-  "ignorePaths": [
-    "**/build/",
-    "**/node_modules/",
-    "**/package-lock.json",
-    "**/LICENSE"
-  ],
+  "ignorePaths": ["**/build/", "**/node_modules/", "**/package-lock.json"],
   "words": [
+    "Bocchi",
     "booktitle",
+    "Gabriele",
     "howpublished",
     "latexmk",
     "nonstopmode",
