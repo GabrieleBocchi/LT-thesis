@@ -2,11 +2,83 @@
 \label{cha:stato_iniziale}
 
 \section{Descrizione del vecchio sistema}
-\label{sec:vecchio_sistema}
+\label{sec:vecchio_sistema} NetEye è composto da un innumerevole quantità di
+moduli e tecnologie per poter garantire un alto livello di affidabilità e
+sicurezza, nel corso degli anni però, grazie principalmente all'aumentare delle
+funzionalità, alcune delle tecnologie non erano più adeguate e si è rilevata la necessità
+di migrare verso qualcosa di più mantenibile e scalabile.\\ È il caso soprattutto
+delle procedure di installazione e aggiornamento, diventate un enorme cumulo di
+script, i quali rendono molto complessa la gestione di queste operazioni.\\ La necessità
+di migrare è cresciuta sempre di più e questo è stato lo scopo del tirocinio da me
+svolto.\\ Procediamo con la descrizione delle procedure di installazione e aggiornamento
+allo stato precedente la migrazione e ai motivi che hanno portato a questa decisione.
 
-\lipsum[1]
+\subsection{Installazione e aggiornamento di NetEye}
+\label{sub:install_update} La maggior parte dei software esistenti hanno in comune
+principalmente due cose, l'installazione e l'aggiornamento.\\ Verranno ora
+descritti i tre comandi che NetEye utilizza per gestire queste operazioni, verrà
+inoltre fatta la distinzione fra l'esecuzione in un'installazione in una macchina
+singola e quella invece in un cluster:
+\begin{enumerate}
+  \item \texttt{neteye\_secure\_install}: Questo comando si occupa di avviare una
+    procedura di esecuzione seriale di script presenti in una determinata cartella.\\
+    Per quanto riguarda l'installazione di NetEye:
+    \begin{itemize}
+      \item Single node: È sufficiente eseguire \texttt{neteye\_secure\_install}
 
-\section{Necessità di migrazione a un sistema più moderno}
-\label{sec:necessita_di_migrazione}
+      \item Cluster: È necessario mettere tutti i nodi in standby ad eccezione
+        del primo, poi eseguire serialmente \texttt{neteye\_secure\_install} su
+        ogni nodo partendo dal primo, e poi rimuovere i nodi dallo stato di standby.
+    \end{itemize}
 
-\lipsum[1]
+  \item \texttt{neteye update}: Questo comando aggiorna la versione corrente di NetEye
+    installando gli ultimi pacchetti rilasciati.\\
+
+  \item \texttt{neteye upgrade}: Questo comando aggiorna NetEye alla versione successiva.
+\end{enumerate}
+Nelle procedure di update e upgrade non ci sono differenze riguardo a ciò che
+deve fare l'utente in base al tipo di installazione, ma dietro le quinte viene anche
+eseguito nuovamente il comando \texttt{neteye\_secure\_install}, portando quindi
+a un'incoerenza poiché quest'ultimo dovrebbe logicamente essere eseguito solo la
+prima volta durante l'installazione di NetEye.
+
+\section{Limiti e necessità di migrazione a un'architettura più moderna}
+\label{sec:necessita_di_migrazione} La complessità operativa e la difficoltà di manutenzione
+rappresentavano uno dei principali problemi del sistema appena descritto.\\ Per gestire
+efficacemente il software NetEye nella sua versione precedente, occorreva
+possedere una notevole competenza tecnica. Spesso le operazioni di routine, come
+l'installazione e l'aggiornamento, erano inefficienti e complicate, richiedendo
+molte fasi manuali che aumentavano la possibilità di commettere errori.\\ A
+causa dell'assenza di un'architettura idempotente, era complicato assicurarsi che
+le operazioni ripetute producessero sempre gli stessi risultati, rendendo così
+ancora più complessa la gestione e la risoluzione dei problemi.\\ Una grande
+limitazione in fase di sviluppo invece, era l'aggiunta di nuovi script per configurare
+servizi o eseguire operazioni, dovuta dal fatto che era molto complesso capire
+se implementando qualcosa di nuovo, potesse andare in errore qualcosa di già esistente.\\
+Il vecchio sistema era caratterizzato da comandi lenti, che creavano un'inefficienza
+operativa significativa. Le configurazioni di nuovi dispositivi o l'aggiornamento
+di essi spesso richiedevano tempi d'attesa prolungati.\\ Oltre a ridurre la produttività,
+questi ritardi potevano mettere a rischio anche l'identificazione tempestiva e
+la soluzione dei problemi di rete, aumentando il pericolo di downtime e interruzioni
+del servizio.\\ \\ Si è previsto che la migrazione a un sistema moderno e idempotente
+con Ansible comporterà numerosi vantaggi. Tra questi:
+\begin{itemize}
+  \item Maggiore Efficienza Operativa: Per ottenere una maggiore velocità nell'esecuzione
+    dei comandi e semplificare le operazioni ricorrenti.
+
+  \item Scalabilità Migliorata: Il sistema può essere ampliato e gestito senza
+    che ciò influisca sulle prestazioni.
+
+  \item Esperienza Utente Ottimizzata: I comandi sono stati migliorati e
+    semplificati per ridurre la difficoltà di apprendimento e aumentare l'efficienza.
+
+  \item Adattabilità e Innovazione: Una maggiore facilità nel incorporare nuove
+    tecnologie e adattarsi alle mutevoli esigenze del mercato è una
+    caratteristica apprezzabile.
+\end{itemize}
+Per riassumere, la richiesta di passare a un sistema più moderno è giustificata
+da una serie di elementi che includono l'efficienza delle operazioni, la possibilità
+di espandere il sistema, l'esperienza dell'utente e la capacità di introdurre
+nuove idee.\\ L'implementazione di una soluzione con Ansible è cruciale per
+superare le limitazioni del sistema precedente e assicurare un futuro migliore
+allo sviluppo e all'utilizzo di NetEye.

@@ -2,11 +2,77 @@
 \label{cha:azienda_progetto}
 
 \section{Panoramica dell'azienda}
-\label{sec:panoramica}
+\label{sec:panoramica} Würth Phoenix è un'azienda fondata nel 2000 con sede a
+Bolzano specializzata in soluzioni per la gestione e il monitoraggio delle reti
+aziendali.\\ Parte dell'internazionale gruppo Würth, l'obiettivo di Würth Phoenix
+è fornire strumenti avanzati e affidabili che assistano le aziende nel controllo
+e l'ottimizzazione delle loro infrastrutture tecnologiche, prestando attenzione
+a sicurezza, visibilità e manutenibilità.\\ L'azienda offre una serie di prodotti
+e servizi che vanno a coprire le diverse aree informatiche delle aziende clienti,
+migliorandone le prestazioni, la sicurezza e la conformità.\\ Grazie alla forte attenzione,
+all'innovazione e alla qualità del lavoro svolto, Würth Phoenix ha ottenuto nel tempo
+una solida reputazione nel settore IT, servendo una vasta gamma di clienti, dalle
+piccole e medie imprese, fino alle grandi corporazioni multinazionali.\\ Inoltre,
+le collaborazioni con partner tecnologici internazionali hanno fortemente contribuito
+al miglioramento dei prodotti e servizi che l'azienda offre, aumentandone l'efficienza
+d'uso e riuscendo a soddisfare al meglio le esigenze dei clienti.
 
-\lipsum[1]
+\section{Servizi e prodotti}
+\label{sec:servizi_prodotti} Würth Phoenix offre servizi che spaziano dalle
+business application grazie a Microsoft Dynamics 365, servizi di threat intelligence
+e cybersecurity, fino a soluzioni di monitoraggio e systems management grazie al
+principale prodotto dell'azienda: NetEye\\
 
-\section{Descrizione del software NetEye}
-\label{sec:neteye}
+\subsection{Descrizione del software NetEye}
+\label{sub:neteye} NetEye è il principale prodotto di Würth Phoenix, sviluppato
+per poter fornire un monitoraggio completo e versatile delle reti aziendali.\\ È
+una piattaforma che combina una moltitudine di diverse funzionalità in un unico
+sistema, offrendo agli amministratori della rete, una visione chiara e
+dettagliata dello stato dell'infrastruttura informatica dell'azienda.\\ NetEye
+può monitorare una vasta gamma di componenti, inclusi server, dispositivi di
+rete di qualunque genere, applicazioni e servizi.\\ È disponibile sia in versione
+on-premise, quindi direttamente nelle aziende dei clienti nella loro
+infrastruttura, sia in cloud, con il servizio NetEye Cloud, equivalente alla prima
+opzione, ma che non richiede al cliente un'infrastruttura in azienda, se non delle
+piccole macchine chiamate "satelliti" che inviano tutti i dati a NetEye Cloud per
+essere processati e fornire tutti i report necessari.\\ Inoltre l'installazione di
+NetEye è disponibile in due versioni, single node, il che significa che il software
+è installato in una sola macchina, o cluster, installato quindi in più macchine per
+poter garantire una potenza di calcolo molto più elevata e un monitoraggio migliore.\\
+Può essere considerata a tutti gli effetti una distro Linux, poiché viene
+installata una versione custom di RHEL, ovvero RedHat Enterprise Linux,
+direttamente nelle macchine finali.\\ Inoltre, è un prodotto estremamente modulare,
+ogni cliente può installare i feature modules che preferisce e utilizzare tutte
+le funzioni che mettono a disposizione.\\ La parte core di NetEye, quindi senza feature
+modules installati, fornisce principalmente monitoraggio, è composta da \href{https://github.com/Icinga/icinga2}{ICINGA2}
+e \href{https://github.com/Icinga/icingaweb2}{Icinga Web 2}, soluzioni open
+source sviluppate da Icinga Project, di cui Würth Phoenix è partner, e da
+\href{https://github.com/WuerthPhoenix/tornado}{Tornado}, un Event Processor che
+riceve dati da una fonte arbitraria e dopo averli analizzati, esegue azioni ed
+eventi di conseguenza.\\ Verranno ora analizzati i feature modules disponibili
+su NetEye:
+\begin{itemize}
+  \item Alyvix: e' un application performance monitoring, permette di monitorare
+    performance di applicazioni web e desktop SU SOLO WINDOWS
 
-\lipsum[1]
+  \item Asset Management: GLPI, ticketing ecc
+
+  \item Command Orchestrator: monitoraggio si integra con Icinga, puoi fare azioni
+    su macchine remote, guardare user guide
+
+  \item SIEM: elastic stack, con le 5 cose + El Proxy, guardare user guide
+
+  \item ntopng: monitoraggio di rete, open source, cercare su internet
+
+  \item SLM: roba nostra, e' un modulo Icinga Web 2 (Service Level Management), puoi
+    definire contratti utilizzati per accertare una certa SLA
+
+  \item vSphereDB: chiedere a GIAN o MATTIA
+\end{itemize}
+NetEye è multitenant, il che significa che l'infrastruttura monitorata può
+essere suddivisa in parti più piccole per poter dare, ai giusti dipendenti o supervisori,
+visibilità solo su ciò che è di loro competenza, si può facilmente immaginare con
+i settori di un'azienda, gestiti da dipendenti diversi.\\ cluster HA, HA si basa
+su pcs(redhat) e drbd(LINBIT), spiegarli. Importanza della HA, risorse che si
+spostano in base al carico, PCS sposta mentre drbd e' il filesystem replicato e
+distribuito, si accerta che i servizi abbiamo le configurazioni ecc
