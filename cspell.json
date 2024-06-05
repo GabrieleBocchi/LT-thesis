@@ -1,6 +1,6 @@
 {
   "version": "0.2",
-  "language": ["en", "it"],
+  "language": "en,it",
   "useGitignore": true,
   "import": [
     "@cspell/dict-en_us/cspell-ext.json",
@@ -11,15 +11,28 @@
   ],
   "ignorePaths": ["**/build/", "**/node_modules/", "**/package-lock.json"],
   "words": [
+    "Alyvix",
     "Bocchi",
     "booktitle",
+    "clusterizzati",
+    "Corosync",
+    "Dall'Idempotenza",
+    "distro",
     "Gabriele",
+    "GLPI",
     "howpublished",
     "idempotente",
     "idempotenza",
     "latexmk",
+    "LINBIT",
+    "multitenant",
+    "NetEye",
     "nonstopmode",
+    "ntop",
+    "ntopng",
     "outdir",
-    "postbuild"
+    "postbuild",
+    "SIEM",
+    "Würth"
   ]
 }
