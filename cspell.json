@@ -11,6 +11,7 @@
   ],
   "ignorePaths": ["**/build/", "**/node_modules/", "**/package-lock.json"],
   "words": [
+    "agentless",
     "Alyvix",
     "Bocchi",
     "booktitle",
@@ -32,6 +33,7 @@
     "ntopng",
     "outdir",
     "postbuild",
+    "ripianificazione",
     "SIEM",
     "Würth"
   ]
