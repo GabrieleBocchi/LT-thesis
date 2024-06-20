@@ -39,62 +39,171 @@ i report necessari. Grazie a questo sistema il cliente non si deve occupare
 della gestione e della manutenzione di tutta l'infrastruttura.\\ In aggiunta, l'installazione
 di NetEye è disponibile in due versioni: single node, il che significa che il software
 è installato in una sola macchina; e cluster, installato quindi in più macchine per
-poter garantire una potenza di calcolo molto più elevata e un monitoraggio migliore.\\
-Può essere considerata a tutti gli effetti una distribuzione Linux poiché viene installata
-una versione custom di RHEL, ovvero RedHat Enterprise Linux, direttamente nelle macchine
-finali.\\ Inoltre è un prodotto estremamente modulare, ogni cliente può
-installare i moduli aggiuntivi che preferisce e utilizzare tutte le funzioni che
-mettono a disposizione.\\ La parte core di NetEye, dunque senza moduli aggiuntivi
-installati, fornisce principalmente monitoraggio; è composta da \href{https://github.com/Icinga/icinga2}{Icinga
-2} e \href{https://github.com/Icinga/icingaweb2}{Icinga Web 2}, soluzioni open
+poter garantire una potenza di calcolo molto più elevata e un monitoraggio High Availability,
+ciò si riferisce a una strategia di progettazione del sistema e alla sua
+implementazione per cui il sistema continua a funzionare anche nei casi in cui
+alcuni nodi dovessero avere problemi e che assicura un certo livello di
+prestazioni operative e tempo di funzionamento, solitamente superiore al 99,99\%.\\
+Può essere considerata a tutti gli effetti una distribuzione Linux poiché viene
+installata una versione custom di RHEL 8.10\footnote{RedHat Enterprise Linux
+website: \url{https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux}},
+ovvero RedHat Enterprise Linux, direttamente nelle macchine finali.\\ Inoltre è un
+prodotto estremamente modulare, ogni cliente può installare i moduli aggiuntivi
+che preferisce e utilizzare tutte le funzioni che mettono a disposizione.\\ La
+parte core di NetEye, dunque senza moduli aggiuntivi installati, fornisce
+principalmente monitoraggio; è composta da Icinga 2\footnote{Icinga 2 source
+code: \url{https://github.com/Icinga/icinga2}} e Icinga Web 2\footnote{Icinga
+Web 2 source code: \url{https://github.com/Icinga/icingaweb2}}, soluzioni open
 source sviluppate da Icinga Project, di cui Würth Phoenix è partner, e da
-\href{https://github.com/WuerthPhoenix/tornado}{Tornado}, un Event Processor che
-riceve dati da una fonte arbitraria e dopo averli analizzati, esegue azioni ed
-eventi di conseguenza.\\ Verranno ora analizzati i moduli aggiuntivi disponibili
-su NetEye: \\----------------------------TODO----------------------------
+Tornado\footnote{Tornado source code: \url{https://github.com/WuerthPhoenix/tornado}},
+un Event Processor che riceve dati da una fonte arbitraria e dopo averli
+analizzati, esegue azioni ed eventi di conseguenza.\\ Verranno ora analizzati i moduli
+aggiuntivi disponibili su NetEye:
 \begin{itemize}
-  \item Alyvix: TODO è un application performance monitoring, permette di monitorare
-    performance di applicazioni web e desktop SU SOLO WINDOWS
+  \item Alyvix\footnote{Alyvix website: \url{https://alyvix.com}}: È uno strumento
+    avanzato di visual monitoring che si distingue per la sua capacità di eseguire
+    test automatizzati delle interfacce delle applicazioni.\\ Utilizzando tecniche
+    di riconoscimento delle immagini, Alyvix simula le interazioni dell'utente
+    con l'interfaccia grafica, consentendo un monitoraggio accurato delle performance
+    delle applicazioni.\\ Ciò permette di rilevare in tempo reale eventuali anomalie
+    o rallentamenti, assicurando che le applicazioni funzionino sempre in modo
+    ottimale.\\ È in grado di generare script di test che imitano le azioni
+    degli utenti, come cliccare su pulsanti, inserire dati nei campi di input e
+    navigare tra diverse schermate. Questi test possono essere programmati per essere
+    eseguiti a intervalli regolari, fornendo un monitoraggio costante e
+    dettagliato.\\ Alyvix, inoltre, offre report molto approfonditi, permettendo
+    agli amministratori di sistema di visualizzare i risultati dei test e di identificare
+    rapidamente i problemi.\\ L'integrazione di Alyvix con NetEye consente di sfruttare
+    le potenti funzionalità di monitoraggio di quest'ultimo, potendo gestire con
+    dati dettagliati e facilmente interpretabili tutta l'infrastruttura di rete
+    di un'azienda.
 
-  \item Asset Management: TODO GLPI, ticketing ecc
+  \item Asset Management: Questo modulo si basa principalmente sull'uso di GLPI\footnote{GLPI
+    website: \url{https://glpi-project.org}} (Gestionnaire Libre de Parc
+    Informatique), un potente strumento di gestione degli asset IT.\\ GLPI offre
+    una piattaforma centralizzata per la gestione dettagliata e il monitoraggio
+    dei componenti hardware e software.\\ Grazie a questo strumento, è possibile
+    tenere traccia dello stato, della posizione e delle proprietà degli asset, facilitando
+    una gestione accurata e aggiornata del parco informatico aziendale Oltre a GLPI,
+    il modulo di gestione degli asset di NetEye utilizza OCS Inventory (Open Computer
+    and Software Inventory Next Generation) per la scoperta automatizzata degli
+    asset e l'inventario.\\ OCS Inventory scansiona la rete per rilevare e
+    raccogliere dati sulle configurazioni hardware e software, riducendo la necessità
+    di inserimenti manuali e minimizzando gli errori.
 
-  \item Command Orchestrator: TODO monitoraggio si integra con Icinga, puoi fare
-    azioni su macchine remote, guardare user guide
+  \item Command Orchestrator: Questo è uno strumento fondamentale per l'automazione
+    e il monitoraggio delle operazioni IT.\\ Integrato con Icinga, il Command Orchestrator
+    consente di eseguire azioni su macchine remote in modo coordinato e automatizzato.
+    Questa funzionalità è essenziale per mantenere l'efficienza operativa e
+    garantire che tutte le componenti del sistema IT siano sotto controllo.\\
+    Grazie all'integrazione con Icinga, il Command Orchestrator può monitorare in
+    tempo reale lo stato delle varie risorse IT, come server, applicazioni e servizi.\\
+    Quando viene rilevato un problema o un'anomalia, il sistema può eseguire
+    automaticamente dei comandi predefiniti per risolvere l'incidente o per
+    attivare procedure di mitigazione. Questo approccio riduce i tempi di inattività
+    e migliora la reattività del team IT.\\ Un altro aspetto cruciale del Command
+    Orchestrator è la capacità di eseguire azioni su macchine remote.\\ Questo significa
+    che gli amministratori di sistema possono automatizzare operazioni complesse,
+    come aggiornamenti software, riavvii di servizio, backup di dati, e altre attività
+    di manutenzione, su una vasta gamma di dispositivi distribuiti in diverse
+    sedi geografiche. L'automazione di queste operazioni non solo migliora l'efficienza
+    ma riduce anche il rischio di errori umani.
 
-  \item SIEM: TODO elastic stack, con le 5 cose + El Proxy, guardare user guide
+  \item SIEM: Questo modulo utilizza Elastic Stack\footnote{Elastic website: \url{https://www.elastic.co}}
+    ed El Proxy per offrire una soluzione completa per la gestione e l'analisi degli
+    eventi di sicurezza.\\ Verranno ora elencati e illustrati tutti i software di
+    questo stack:
+    \begin{itemize}
+      \item Elasticsearch: Motore di ricerca distribuito e un sistema di analisi
+        in tempo reale basato su Apache Lucene\footnote{Apache Lucene source
+        code: \url{https://github.com/apache/lucene}}. È progettato per gestire
+        grandi quantità di dati e supportare ricerche complesse attraverso un'architettura
+        distribuita.
+
+      \item Logstash: Strumento per la raccolta, processo e distribuzione dei log.\\
+        Riceve i dati da diverse fonti e li invia a Elasticsearch o ad altri sistemi
+        di archiviazione e analisi.\\ Supporta numerosi input e output, inclusi
+        file di log, database, metriche di rete, e offre la possibilità di trasformare
+        i dati prima dell'invio.
+
+      \item Kibana: Interfaccia utente che consente di visualizzare e analizzare
+        i dati archiviati in Elasticsearch.\\ È progettato per la
+        visualizzazione dei dati in tempo reale attraverso grafici, mappe,
+        tabelle e dashboard personalizzabili.\\ Inoltre facilita l'esplorazione
+        e l'interpretazione dei dati attraverso una serie di strumenti di
+        visualizzazione interattivi.
+
+      \item Beats: Agenti leggeri utilizzati per inviare dati operativi a
+        Elasticsearch o a Logstash.\\ Esistono diversi tipi di Beats
+        specializzati in diverse tipologie di dati, come metriche di sistema,
+        log di rete o dati di audit.\\ Ciò semplifica la raccolta dei dati da
+        sorgenti distribuite, riducendo il carico di lavoro sui sistemi di raccolta
+        e analisi.
+
+      \item Elastic Agent: È un'evoluzione di Beats che unifica l'esperienza di
+        raccolta dei dati in singoli agenti, offrendo la possibilità di raccogliere
+        dati, applicare politiche di sicurezza e integrità, e inviare i dati a Elasticsearch
+        o altri sistemi di destinazione. Nonostante gli agenti possano essere
+        remoti, tutto questo può essere gestito centralmente dall'interfaccia di
+        Kibana.\\ Non è necessario specificare il tipo di Beat da utilizzare per
+        una certa task, è invece sufficiente indicare le operazioni necessarie
+        affinché venga automaticamente selezionato il Beat più idoneo.\\ Elastic
+        Agent è progettato per semplificare la gestione degli agenti e
+        migliorare le prestazioni e la sicurezza delle operazioni di
+        monitoraggio e analisi dei dati.
+
+      \item El Proxy: Soluzione interamente sviluppata da Würth Phoenix che si
+        occupa di garantire l'integrità e la sequenzialità dei log prima della
+        loro indicizzazione in Elasticsearch.\\ Questo sistema firma i log in
+        ingresso, creando una blockchain che assicura i log non vengano alterati
+        e che la loro sequenza sia mantenuta in modo corretto.\\ Questo livello di
+        sicurezza e integrità è essenziale per aziende che devono rispettare requisiti
+        normativi rigorosi sulla conservazione e la gestione dei dati.\\ EL Proxy
+        offre quindi una soluzione robusta per le aziende che necessitano di un metodo
+        sicuro e affidabile per la gestione dei loro log, assicurando che ogni
+        evento registrato sia autentico e non alterato.
+    \end{itemize}
 
   \item ntopng(Network Top Next Generation): È un software di monitoraggio di reti
-    open-source creato da ntop. Offre un'interfaccia web facile da utilizzare
-    per monitorare in tempo reale il flusso del traffico di rete. ntopng consente
-    di visualizzare informazioni dettagliate, inclusi l'utilizzo della larghezza
-    di banda, le applicazioni in uso, i flussi di dati e gli indirizzi IP
-    coinvolti sfruttando tecnologie avanzate. È in grado inoltre di supportare diversi
-    protocolli di rete e può essere facilmente integrato con altri strumenti di monitoraggio
-    per fornire una visualizzazione completa delle prestazioni e della sicurezza
-    della rete, offrendo nel contempo informazioni dettagliate.\\ ntopng viene
+    open-source creato da ntop\footnote{ntop website: \url{https://www.ntop.org}}.\\
+    Offre un'interfaccia web facile da utilizzare per monitorare in tempo reale
+    il flusso del traffico di rete.\\ ntopng consente di visualizzare
+    informazioni dettagliate, inclusi l'utilizzo della larghezza di banda, le
+    applicazioni in uso, i flussi di dati e gli indirizzi IP coinvolti sfruttando
+    tecnologie avanzate.\\ È in grado inoltre di supportare diversi protocolli di
+    rete e può essere facilmente integrato con altri strumenti di monitoraggio per
+    fornire una visualizzazione completa delle prestazioni e della sicurezza della
+    rete, offrendo nel contempo informazioni dettagliate.\\ ntopng viene
     utilizzato per ottimizzare la gestione della rete, identificare anomalie e potenziali
     minacce, nonché migliorare la pianificazione delle risorse di rete grazie
     alla sua avanzata capacità di analisi.
 
-  \item SLM(Service Level Management): Modulo Icinga Web 2 sviluppato internamente,
-    è possibile definire dei contratti tra l'azienda Würth Phoenix e un
-    determinato cliente che vengono utilizzati per accertare una certa SLA(Service
-    Level Agreement), ovvero un indicatore riguardo il tempo che un certo
-    servizio o risorsa erano operativi.
+  \item SLM(Service Level Management): Questo modulo, sviluppato internamente
+    come modulo per Icinga Web 2, è uno strumento cruciale per la gestione e la verifica
+    delle SLA (Service Level Agreements). Ciò rappresenta il parametro chiave
+    negli accordi tra un'azienda e i suoi clienti, specificando gli standard di servizio
+    che devono essere mantenuti.\\ Il modulo SLM consente di definire contratti dettagliati
+    che stabiliscono i livelli di servizio attesi per varie risorse o servizi.
+    Questi contratti includono metriche chiave come la disponibilità e le
+    prestazioni, che vengono monitorate costantemente per garantire che gli standard
+    concordati siano rispettati.
 
-  \item vSphereDB: e' un modulo di Icinga Web 2 https://github.com/Icinga/icingaweb2-module-vspheredb,
-    permette di monitorare tutte le vm su vsphere, c'e' un demone che gli dai
-    accesso a vsphere e tira fuori tutto
+  \item vSphereDB\footnote{vSphereDB source code: \url{https://github.com/Icinga/icingaweb2-module-vspheredb}}:
+    È un modulo open-source di Icinga Web 2 progettato per il monitoraggio completo
+    delle macchine virtuali su piattaforme VMware vSphere.\\ Permette agli amministratori
+    di sistema di avere una visione dettagliata e centralizzata di tutte le VM gestite
+    tramite vSphere.\\ Il modulo funziona tramite un demone che accede all'infrastruttura
+    vSphere e raccoglie una vasta gamma di dati sulle macchine virtuali. Questo
+    include informazioni sullo stato delle VM, le prestazioni, l'utilizzo delle
+    risorse e molto altro.\\ I dati raccolti vengono poi visualizzati in un'interfaccia
+    utente intuitiva all'interno di NetEye.
 \end{itemize}
-----------------------------TODO----------------------------\\ NetEye è multitenant,
-il che significa che l'infrastruttura monitorata può essere suddivisa in parti
-più piccole per poter dare, ai giusti dipendenti o supervisori, visibilità solo
-su ciò che è di loro competenza, si può facilmente immaginare con i settori di un'azienda,
-gestiti da dipendenti diversi.\\ Infine, i cluster di NetEye sono High Availability,
-ciò si riferisce a una strategia di progettazione del sistema e alla sua
-implementazione che assicura un certo livello di prestazioni operative e tempo
-di funzionamento, solitamente superiore al 99,99\%.\\ Su NetEye, ciò viene garantito
-da due software essenziali:
+NetEye è multitenant, il che significa che l'infrastruttura monitorata può essere
+suddivisa in parti più piccole per poter dare, ai giusti dipendenti o
+supervisori, visibilità solo su ciò che è di loro competenza, si può facilmente
+immaginare con i settori di un'azienda, gestiti da manager diversi.\\ Come specificato
+precedentemente i cluster di NetEye sono High Availability, e ciò viene
+garantito da due software essenziali:
 \begin{itemize}
   \item PCS(Pacemaker/Corosync Cluster Stack): È uno strumento di gestione dei cluster
     sviluppato da Red Hat e utilizzato per configurare e controllare cluster High
@@ -123,7 +232,7 @@ da due software essenziali:
     di dischi tra diversi nodi.\\ È utilizzato per garantire la disponibilità e l'integrità
     dei dati in ambienti clusterizzati.
 \end{itemize}
-Utilizzando assieme PCS e DRBD si riesce a garantire la creazione di sistemi
-robusti che possono resistere a guasti hardware senza interruzioni significative
-dei servizi. Un funzionamento di questo tipo è essenziale per i sistemi che utilizzano
-NetEye e che hanno bisogno di un monitoraggio continuo.
+Utilizzando assieme PCS e DRBD si riesce a garantire la creazione di sistemi robusti
+che possono resistere a guasti hardware senza interruzioni significative dei servizi.
+Un funzionamento di questo tipo è essenziale per i sistemi che utilizzano NetEye
+e che hanno bisogno di un monitoraggio continuo.

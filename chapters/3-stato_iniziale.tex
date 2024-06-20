@@ -8,11 +8,11 @@ sicurezza; nel corso degli anni però, grazie principalmente all'aumentare delle
 funzionalità, alcune delle tecnologie non risultavano più adeguate e si è mostrata
 la necessità di migrare verso qualcosa di più mantenibile e scalabile.\\ È il caso
 soprattutto delle procedure di installazione e aggiornamento, diventate un
-enorme cumulo di script, i quali rendono molto complessa la gestione di queste operazioni.\\
-La necessità di cambiare è cresciuta sempre di più e questo è stato il tema del tirocinio
-da me svolto.\\ Procediamo con la descrizione delle procedure di installazione e
-aggiornamento allo stato precedente la migrazione e ai motivi che hanno portato a
-questa decisione.
+enorme sequenza di script, i quali rendono molto complessa la gestione di queste
+operazioni.\\ La necessità di cambiare è cresciuta sempre di più e questo è stato
+il tema del tirocinio da me svolto.\\ Procediamo con la descrizione delle procedure
+di installazione e aggiornamento allo stato precedente la migrazione e ai motivi
+che hanno portato a questa decisione.
 
 \subsection{Installazione e aggiornamento di NetEye}
 \label{sub:install_update} La maggior parte dei software esistenti hanno in comune
@@ -27,9 +27,11 @@ singola e quella invece in un cluster:
     \begin{itemize}
       \item Single node: È sufficiente eseguire \texttt{neteye\_secure\_install}
 
-      \item Cluster: È necessario mettere tutti i nodi in standby ad eccezione
-        del primo, poi eseguire serialmente \texttt{neteye\_secure\_install} su
-        ogni nodo partendo dal primo, e poi rimuovere i nodi dallo stato di standby.
+      \item Cluster: È necessario mettere tutti i nodi in standby\footnote{Un
+        nodo in standby è un nodo non operativo, ovvero nel quale non vengono eseguite
+        risorse e servizi del cluster} ad eccezione del primo, poi eseguire
+        serialmente \texttt{neteye\_secure\_install} su ogni nodo partendo dal primo,
+        e poi rimuovere i nodi dallo stato di standby.
     \end{itemize}
 
   \item \texttt{neteye update}: Questo comando aggiorna la versione corrente di NetEye
@@ -62,7 +64,7 @@ o l'aggiornamento di essi spesso richiedevano tempi d'attesa prolungati.\\ Oltre
 a ridurre la produttività, questi ritardi potevano mettere a rischio anche l'identificazione
 tempestiva e la soluzione dei problemi di rete, aumentando il pericolo di
 downtime e interruzioni del servizio.\\ \\ Si è previsto che la migrazione a un
-sistema moderno e idempotente con Ansible comporterà numerosi vantaggi. Tra questi:
+sistema moderno e idempotente comporterà numerosi vantaggi. Tra questi:
 \begin{itemize}
   \item Maggiore Efficienza Operativa: Per ottenere una maggiore velocità nell'esecuzione
     dei comandi e semplificare le operazioni ricorrenti.
@@ -80,6 +82,6 @@ sistema moderno e idempotente con Ansible comporterà numerosi vantaggi. Tra que
 Per riassumere, la richiesta di passare a un sistema più moderno è giustificata da
 una serie di elementi che includono l'efficienza delle operazioni, la
 possibilità di espandere il sistema, l'esperienza dell'utente e la capacità di introdurre
-nuove idee.\\ L'implementazione di una soluzione con Ansible è cruciale per superare
-le limitazioni del sistema precedente e assicurare un futuro migliore allo sviluppo
-e all'utilizzo di NetEye.
+nuove idee.\\ L'implementazione di una soluzione è cruciale per superare le limitazioni
+del sistema precedente e assicurare un futuro migliore allo sviluppo e all'utilizzo
+di NetEye.

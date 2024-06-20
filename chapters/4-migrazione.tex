@@ -4,76 +4,153 @@
 \section{Introduzione ad Ansible e ai suoi vantaggi}
 \label{sec:ansible}
 
-Ansible è un potente software open-source sviluppato da Red Hat che si occupa di
-automazione IT.\\ Distinguendosi per la sua semplicità ed efficienza, è
-progettato per migliorare e facilitare la gestione della configurazione e del
-provisioning delle applicazioni, oltre che l'orchestrazione e l'automazione delle
-operazioni informatiche più note.\\ Grazie ad Ansible, gli amministratori di
-sistema e i DevOps riescono ad automatizzare facilmente compiti complessi.\\ Una
-caratteristica fondamentale di Ansible è la sua natura agentless, il che comporta
-l'assenza della necessità di installare software specifico sui nodi target.
-Questo garantisce un significativo abbattimento della complessità e dei
-requisiti di manutenzione, mentre si verificano contemporaneamente miglioramenti
-in termini di sicurezza e affidabilità delle operazioni.\\ Il linguaggio utilizzato
-per scrivere i playbook, ovvero i file che descrivono ciò che Ansible dovrà
-eseguire nei nodi target, è YAML, un linguaggio facilmente leggibile sia dagli
-umani che dalle macchine.\\ Attraverso l'utilizzo dei playbook, è possibile fornire
-una descrizione completa delle attività da eseguire, come la configurazione dei
-server, l'installazione di pacchetti software, la gestione degli utenti e dei
-permessi e molte altre operazioni.\\ L'architettura di Ansible si basa su moduli
-che possono essere utilizzati per eseguire una vastissima gamma di operazioni, ed
-è inoltre possibile scriverne di custom, per poter aggiungere funzionalità più
-specifiche.\\ Un'altra caratteristica vantaggiosa di Ansible è l'idempotenza, che
-garantisce la coerenza e la ripetibilità delle operazioni, indipendentemente
-dallo stato iniziale del sistema. In ambienti IT dinamici e complessi come questo,
-la coerenza e l'affidabilità delle configurazioni sono essenziali.\\ In breve, Ansible
-fornisce un'opzione efficace e versatile per automatizzare le operazioni IT,
-ottimizzando l'efficienza dei processi, diminuendo gli errori umani e consentendoci
-di risparmiare tempo prezioso.\\ L'adozione di questa soluzione può portare notevoli
-benefici in termini di scalabilità e produttività delle infrastrutture.
+Ansible\footnote{Ansible website: \url{https://www.ansible.com}} è un potente
+software open-source sviluppato da Red Hat che si occupa di automazione IT.\\
+Distinguendosi per la sua semplicità ed efficienza, è progettato per migliorare e
+facilitare la gestione della configurazione e del provisioning delle applicazioni,
+oltre che l'orchestrazione e l'automazione delle operazioni informatiche più
+note.\\ Grazie ad Ansible, gli amministratori di sistema e i DevOps riescono ad automatizzare
+facilmente compiti complessi.\\ Una caratteristica fondamentale di Ansible è la sua
+natura agentless, il che comporta l'assenza della necessità di installare
+software specifico sui nodi target. Questo garantisce un significativo abbattimento
+della complessità e dei requisiti di manutenzione, mentre si verificano
+contemporaneamente miglioramenti in termini di sicurezza e affidabilità delle
+operazioni.\\ Il linguaggio utilizzato per scrivere i playbook, ovvero i file che
+descrivono ciò che Ansible dovrà eseguire nei nodi target, è YAML, un linguaggio
+facilmente leggibile sia dagli umani che dalle macchine.\\ Attraverso l'utilizzo
+dei playbook, è possibile fornire una descrizione completa delle attività da
+eseguire, come la configurazione dei server, l'installazione di pacchetti
+software, la gestione degli utenti e dei permessi e molte altre operazioni.\\ L'architettura
+di Ansible si basa su moduli che possono essere utilizzati per eseguire una vastissima
+gamma di operazioni, ed è inoltre possibile scriverne di custom, per poter aggiungere
+funzionalità più specifiche.\\ Un'altra caratteristica vantaggiosa di Ansible è l'idempotenza,
+che garantisce la coerenza e la ripetibilità delle operazioni, indipendentemente
+dallo stato iniziale del sistema. In ambienti IT dinamici e complessi come
+questo, la coerenza e l'affidabilità delle configurazioni sono essenziali.\\ In breve,
+Ansible fornisce un'opzione efficace e versatile per automatizzare le operazioni
+IT, ottimizzando l'efficienza dei processi, diminuendo gli errori umani e
+consentendoci di risparmiare tempo prezioso.\\ L'adozione di questa soluzione
+può portare notevoli benefici in termini di scalabilità e produttività delle
+infrastrutture.
 
 \section{Processo di migrazione}
 \label{sec:processo_migrazione}
 
-Analizzeremo ora le fasi e le motivazioni che hanno portato alla migrazione da
-quello che era un sistema basato sull'esecuzione seriale di script a un sistema
-di playbook per garantire una configurazione idempotente e mantenibile del
-sistema.
+Analizzeremo ora le fasi e le motivazioni che hanno portato alla migrazione da quello
+che era un sistema basato sull'esecuzione seriale di script a un sistema di playbook
+per garantire una configurazione idempotente e mantenibile del sistema.
 
 \subsection{Verso un sistema idempotente}
 \label{sub:prerequisiti_migrazione}
 
 Durante la fase decisionale riguardo il miglioramento delle procedure di NetEye,
 una delle caratteristiche più importanti che si è voluto ottenere è stata l'idempotenza.\\
-Questo perché, in un ambiente complesso come quello in cui opera NetEye, è
-fondamentale garantire la coerenza e la ripetibilità delle operazioni, indipendentemente
-dallo stato iniziale del sistema.\\ Per ottenere tutto ciò si sono dovute analizzare
-minuziosamente le caratteristiche e le fasi delle varie procedure.
+Questo perché, in un ambiente complesso come quello in cui opera NetEye, è fondamentale
+garantire la coerenza e la ripetibilità delle operazioni, indipendentemente
+dallo stato iniziale del sistema.\\ Per ottenere tutto ciò si sono dovute
+analizzare minuziosamente le caratteristiche e le fasi delle varie procedure.
 
 \subsection{Fasi della migrazione}
 \label{sub:fasi_migrazione}
 
-Il processo di migrazione è stato tutt'altro che banale, spesso quando un problema
-sembrava risolto ne veniva alla luce un altro, è stato necessario dunque
-ricorrere a un approccio strutturato e metodico.\\ Inizialmente il lavoro non è
-stato altro che riunioni e discussioni per decidere come procedere, ma alla fine
-si è riusciti a redigere un piano operativo per riuscire efficientemente e,
-soprattutto, senza creare problemi a procedere per questo primo passo verso il miglioramento
-delle procedure di NetEye:
+Il processo di migrazione è stato tutt'altro che banale, spesso quando un
+problema sembrava risolto ne veniva alla luce un altro, è stato necessario dunque
+ricorrere a un approccio strutturato e metodico.\\ Inizialmente è stato un lungo
+lavoro di pianificazione per decidere come procedere, ma alla fine si è riusciti
+a redigere un piano operativo per riuscire efficientemente e, soprattutto, senza
+fermare lo sviluppo degli altri membri del team, a procedere per questo primo passo
+verso il miglioramento delle procedure di NetEye:
 \begin{enumerate}
   \item Creare il comando \texttt{neteye install}:
+    \begin{itemize}
+      \item Descrizione: Come prima operazione, è stato creato il comando \texttt{neteye
+        install} da affiancare temporaneamente al comando \texttt{neteye\_secure\_install},
+        con l'obiettivo di sostituire quest'ultimo al termine della migrazione.
+
+      \item Funzionamento: Questo nuovo comando esegue serialmente i playbook
+        Ansible presenti in una specifica cartella del sistema. Inizialmente,
+        \texttt{neteye install} è stato inserito all'inizio della vecchia procedura,
+        permettendo la migrazione graduale degli script mantenendo intatta la
+        procedura complessiva.
+
+      \item Obiettivo: Garantire una transizione senza interruzioni, permettendo
+        di verificare il corretto funzionamento del nuovo comando prima di deprecare
+        quello vecchio.
+    \end{itemize}
 
   \item Deprecare il comando \texttt{neteye\_secure\_install}:
+    \begin{itemize}
+      \item Descrizione: Una volta verificato il corretto funzionamento di
+        \texttt{neteye install}, il comando \texttt{neteye\_secure\_install} è stato
+        deprecato.
 
-  \item Aggiornare le pipelines della continuous integration:
+      \item Transizione: Inizialmente, \texttt{neteye install} era posizionato
+        all'inizio del \texttt{neteye\_secure\_install}. Successivamente, \texttt{neteye\_secure\_install}
+        è stato spostato alla fine di \texttt{neteye install}, rendendo
+        superfluo il vecchio comando per l'utente.
+
+      \item Obiettivo: Eliminare il vecchio comando, semplificando la procedura di
+        installazione e riducendo la complessità.
+    \end{itemize}
+
+  \item Aggiornare le pipelines della Continuous Integration:
+    \begin{itemize}
+      \item Descrizione: A seguito della modifica del comando di installazione, è
+        stato necessario aggiornare tutte le pipeline di testing per utilizzare il
+        nuovo comando.
+
+      \item Obiettivo: Garantire che il nuovo processo di installazione sia
+        completamente integrato e testato attraverso le pipeline di CI, mantenendo
+        l'affidabilità e la qualità del software.
+    \end{itemize}
 
   \item Aggiornare le immagini Docker:
+    \begin{itemize}
+      \item Descrizione: Le immagini Docker, utilizzate per testare versioni containerizzate
+        di NetEye, sono state aggiornate nei Dockerfile per riflettere le nuove
+        procedure di installazione.
+
+      \item Obiettivo: Assicurare che le immagini Docker siano compatibili con
+        il nuovo comando di installazione, permettendo un testing e un deployment
+        coerenti in ambienti containerizzati.
+    \end{itemize}
 
   \item Aggiornare le ISO:
+    \begin{itemize}
+      \item Descrizione: Le immagini ISO utilizzate per installare NetEye su
+        macchine fisiche per i clienti sono state aggiornate per includere il
+        nuovo processo di installazione automatizzato.
+
+      \item Obiettivo: Fornire una soluzione di installazione aggiornata e
+        ottimizzata per i server fisici, migliorando l'esperienza di deployment per
+        i clienti.
+    \end{itemize}
 
   \item Aggiornare la User Guide:
+    \begin{itemize}
+      \item Descrizione: La guida utente è stata aggiornata per documentare
+        accuratamente le nuove procedure di installazione, fornendo ai clienti istruzioni
+        chiare e dettagliate.
+
+      \item Obiettivo: Assicurare che gli utenti abbiano accesso a una
+        documentazione aggiornata e precisa, facilitando l'adozione delle nuove pratiche
+        di installazione.
+    \end{itemize}
 
   \item Migrare i vecchi script:
+    \begin{itemize}
+      \item Descrizione: Una volta completata la migrazione del comando di
+        installazione, è iniziata la conversione dei vecchi script di installazione
+        e configurazione in playbook Ansible.
+
+      \item Processo: Questa fase richiede tempo, poiché il numero di script da migrare
+        è elevato. Il processo prevede una revisione dettagliata e la
+        riscrittura di ogni script per garantire la compatibilità e l'idempotenza.
+
+      \item Obiettivo: Completare la transizione verso un sistema completamente
+        automatizzato e manutenibile, migliorando la coerenza e l'affidabilità delle
+        installazioni.
+    \end{itemize}
 \end{enumerate}
 
 \section{Implementazione di un nuovo sistema}
@@ -83,20 +160,62 @@ delle procedure di NetEye:
 \label{sub:sviluppo}
 
 Modificare una parte così centrale di un software grandissimo come NetEye è stata
-una sfida veramente complessa ma estremamente stimolante, essenziali però sono
-stati gli strumenti messi a disposizione e che hanno affiancato lo sviluppo
-rendendo fattibile l'aggiunta e la modifica di codice, verranno ora brevemente illustrati:
+una sfida veramente complessa ma estremamente stimolante, essenziali sono stati
+gli strumenti messi a disposizione e che hanno affiancato lo sviluppo rendendo
+fattibile l'aggiunta e la modifica di codice.\\ Verranno ora brevemente
+illustrati:
 \begin{itemize}
-  \item Jira:
+  \item Jira: Strumento di gestione dei progetti e di tracciamento dei bug
+    sviluppato da Atlassian.\\ È utilizzato principalmente per il monitoraggio
+    dei problemi, la gestione dei progetti Agile, e il controllo del flusso di
+    lavoro.\\ Jira supporta le metodologie Scrum e Kanban, consentendo ai team di
+    pianificare, tracciare e rilasciare software di alta qualità.\\ Gli utenti
+    possono creare backlog, sprint, e storie utente, oltre a visualizzare il progresso
+    tramite bacheche Kanban.
 
-  \item Jenkins:
+  \item Jenkins: Servizio open-source di automazione che facilita i processi di
+    \textit{Continuous Integration} e \textit{Continuous Delivery} (CI/CD) nel
+    processo di sviluppo software.\\ Jenkins automatizza la costruzione, il testing
+    e la distribuzione del codice, permettendo agli sviluppatori di rilevare
+    rapidamente i difetti e integrare nuove funzionalità.\\ Con la sua vasta
+    gamma di plugin, Jenkins può essere integrato con numerosi strumenti di sviluppo
+    e gestione del ciclo di vita del software.
 
-  \item OpenShift:
+  \item OpenShift: Piattaforma di containerizzazione e orchestrazione sviluppata
+    da Red Hat, basata su Kubernetes\footnote{\label{kubernetes_note}Kubernetes source
+    code: \url{https://github.com/kubernetes/kubernetes}}.\\ OpenShift fornisce
+    un ambiente integrato per lo sviluppo, la distribuzione e la gestione delle applicazioni
+    containerizzate.\\ Offre funzionalità avanzate come la gestione automatica dei
+    cluster, il bilanciamento del carico, il monitoraggio e il ridimensionamento
+    automatico, supportando una vasta gamma di linguaggi e framework di sviluppo.
 
-  \item Cluster Provisioner:
+  \item Cluster Provisioner: Strumento utilizzato per creare e gestire cluster
+    di server in modo automatizzato.\\ Questo tipo di software è fondamentale
+    per la configurazione di ambienti di sviluppo, testing e produzione,
+    garantendo che i cluster siano configurati correttamente e pronti per l'uso.\\
+    I Cluster Provisioner possono essere utilizzati in ambienti cloud, on-premises
+    o ibridi, e spesso supportano l'integrazione con strumenti di orchestrazione
+    come Kubernetes\footref{kubernetes_note}.
 
-  \item vSphere:
+  \item vSphere: Piattaforma di virtualizzazione di VMware che consente di
+    creare, eseguire e gestire macchine virtuali su larga scala.\\ vSphere include
+    un hypervisor (VMware ESXi) per l'esecuzione delle VM e una suite di strumenti
+    per la gestione delle risorse di elaborazione, rete e storage.\\ vSphere è
+    ampiamente utilizzato in ambienti di data center per migliorare l'efficienza
+    operativa, ridurre i costi e aumentare la flessibilità e la scalabilità delle
+    infrastrutture IT.
 \end{itemize}
 
 \subsection{Problematiche affrontate durante la migrazione}
 \label{sub:problemi}
+
+Non sono mancati i problemi durante le fasi della migrazione.\\ Poiché NetEye è un
+prodotto molto esteso e pieno di funzionalità, le difficoltà e il timore di
+creare problemi inizialmente non hanno contribuito al miglioramento delle
+procedure.\\ Con il passare dei giorni però la consapevolezza riguardo al
+funzionamento di NetEye è aumentata ed è stato possibile procedere con la
+migrazione.\\ Inoltre, durante le fasi transitorie si sono presentati numerosi problemi
+dovuti al fatto che si stavano modificando procedure che gli altri sviluppatori usavano
+da anni, ed è quindi stato necessario creare documenti e video al fine di
+documentare correttamente le modifiche, per gli attuali e futuri membri del team
+che lavoreranno con esse.
