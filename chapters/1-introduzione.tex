@@ -4,8 +4,93 @@
 \section{Introduzione generale al contesto del tirocinio}
 \label{sec:tirocinio}
 
+Il tirocinio è stato svolto presso Würth Phoenix, un'azienda con sede a Bolzano
+specializzata nello sviluppo di soluzioni software per il monitoraggio e la
+gestione delle reti aziendali.\\ Il principale prodotto di Würth Phoenix, NetEye,
+è un software di monitoraggio delle reti utilizzato da aziende enterprise per
+garantire l'efficienza e la sicurezza delle loro infrastrutture IT.\\ Lo scopo
+del tirocinio da me svolto ha riguardato la migrazione del sistema di
+installazione e aggiornamento di NetEye, da una soluzione obsoleta e poco mantenibile
+a una più moderna e idempotente utilizzando Ansible.\\ Implementando inoltre una
+logica di parallelizzazione per ottimizzare le procedure di installazione e aggiornamento
+sono notevolmente migliorati i tempi di esecuzione e l'efficienza del sistema.\\
+La metodologia Agile è stata una componente fondamentale del progetto,
+facilitando la gestione delle fasi di sviluppo, la comunicazione e il coordinamento
+tra i membri del team.\\ Ciò ha permesso di affrontare le sfide del progetto in modo
+iterativo e incrementale, garantendo una maggiore flessibilità e adattabilità
+alle esigenze in continua evoluzione.
+
 \section{Obiettivi della tesi}
 \label{sec:obiettivi}
 
+La tesi si propone di illustrare in dettaglio il processo di migrazione e di parallelizzazione
+delle procedure di installazione e aggiornamento di NetEye, sottolineando l'importanza
+della metodologia Agile ed evidenziando le sfide affrontate e le soluzioni
+adottate.\\ Gli obiettivi principali sono:
+\begin{itemize}
+  \item Descrivere il contesto e le motivazioni della migrazione: Esaminare il
+    sistema di installazione e aggiornamento preesistente, evidenziandone le limitazioni
+    e le problematiche che hanno reso necessaria la migrazione.
+
+  \item Documentare il processo di migrazione ad Ansible: Spiegare come Ansible
+    è stato utilizzato per creare un sistema di installazione e aggiornamento
+    idempotente, illustrando i vantaggi ottenuti in termini di manutenibilità e affidabilità.
+
+  \item Implementazione della parallelizzazione: Dettagliare il processo di
+    sviluppo di un modulo Python per la parallelizzazione delle procedure di
+    installazione e aggiornamento, descrivendo la logica di configurazione dei servizi
+    e i benefici ottenuti in termini di efficienza.
+
+  \item Analizzare i risultati ottenuti: Confrontare il sistema precedente con
+    quello nuovo, valutando i miglioramenti in termini di efficienza,
+    manutenibilità e idempotenza.
+
+  \item Riflessioni sul lavoro di team e sulla metodologia Agile: Descrivere le
+    dinamiche di lavoro in team, la comunicazione e il coordinamento tra i membri,
+    e l'adozione della metodologia Agile durante il progetto.
+
+  \item Suggerimenti per futuri miglioramenti: Offrire spunti e consigli per il
+    miglioramento continuo del sistema e per future esperienze di tirocinio.
+\end{itemize}
+
 \section{Struttura della tesi}
 \label{sec:struttura}
+
+La tesi è strutturata nei seguenti capitoli:
+\begin{enumerate}
+  \item Introduzione: Presenta il contesto del tirocinio, gli obiettivi della tesi
+    e la struttura del documento.
+
+  \item Descrizione dell’Azienda e del Progetto: Descrive Würth Phoenix, il prodotto
+    NetEye e i principali servizi offerti.
+
+  \item Stato Iniziale del Sistema: Fornisce una descrizione dettagliata del
+    sistema di installazione e aggiornamento originale, le tecnologie utilizzate,
+    le procedure di installazione e aggiornamento di NetEye, e le necessità di migrazione
+    a un sistema più moderno.
+
+  \item Migrazione ad Ansible: Spiega il processo di migrazione, includendo la creazione
+    del comando di installazione, la deprecazione del vecchio comando, l'aggiornamento
+    delle pipelines di CI, delle immagini Docker, delle ISO e della User Guide,
+    e la migrazione dei vecchi script.
+
+  \item Parallelizzazione delle Procedure: Illustra il concetto e l'importanza
+    della parallelizzazione, le fasi dell'implementazione, la configurazione dei
+    servizi e la logica di dipendenze, e presenta esempi e risultati ottenuti.
+
+  \item Metodologia Agile: Discute l'utilizzo della metodologia Agile, i ruoli e
+    le fasi di sviluppo, e i metodi di comunicazione e coordinamento tra i
+    membri del team.
+
+  \item Collaborazione e Lavoro di Team: Esamina le dinamiche di lavoro in team,
+    la comunicazione e il coordinamento, e l'utilizzo di strumenti Agile per il
+    miglioramento continuo.
+
+  \item Risultati e Conclusioni: Valuta i risultati del progetto di migrazione e
+    parallelizzazione, confronta il sistema vecchio con quello nuovo, e offre
+    riflessioni sull'esperienza di tirocinio e suggerimenti per futuri
+    miglioramenti.
+\end{enumerate}
+Questa struttura permette di seguire un percorso logico e chiaro, che parte dal contesto
+generale fino ad arrivare ai dettagli tecnici e alle conclusioni, fornendo una
+visione completa del progetto svolto e dei risultati ottenuti.

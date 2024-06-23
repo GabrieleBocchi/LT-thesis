@@ -1,13 +1,99 @@
 \chapter{Risultati e Conclusioni}
 \label{cha:conclusioni}
 
-\section{Valutazione dei risultati del progetto di migrazione}
+\section{Valutazione dei risultati del progetto}
 \label{sec:valutazione}
 
-\section{Confronto tra il sistema vecchio e quello nuovo in termini di
-efficienza, manutenibilità e idempotenza}
+Il progetto ha riguardato due aspetti principali: la migrazione dei vecchi
+script ad Ansible e l'implementazione della parallelizzazione nelle procedure di
+NetEye.\\ Entrambi gli obiettivi sono stati raggiunti con successo, apportando miglioramenti
+significativi in termini di efficienza, manutenibilità e idempotenza:
+\begin{itemize}
+  \item Migrazione ad Ansible: La migrazione ha comportato la riscrittura delle
+    procedure di installazione e aggiornamento utilizzando playbook Ansible, il che
+    ha permesso di ottenere configurazioni idempotenti e facilmente replicabili.\\
+    La modularità di Ansible ha reso le procedure più facili da mantenere e aggiornare,
+    riducendo la complessità e aumentando la robustezza del sistema.
+
+  \item Parallelizzazione: L'implementazione della parallelizzazione ha
+    ulteriormente migliorato l'efficienza delle procedure.\\ Grazie al modulo
+    sviluppato in Python, è stato possibile eseguire in parallelo i servizi indipendenti,
+    riducendo significativamente i tempi di installazione da 2 minuti a soli 20
+    secondi.
+\end{itemize}
+
+\section{Confronto tra il sistema vecchio e quello nuovo}
 \label{sec:confronto}
 
-\section{Conclusioni tratte dall'esperienza di tirocinio e suggerimenti per
+Per meglio comprendere i vantaggi ottenuti, è utile confrontare il sistema
+vecchio con quello nuovo in termini di efficienza, manutenibilità e idempotenza:
+\begin{itemize}
+  \item Efficienza: Il vecchio sistema richiedeva tempi di installazione molto
+    lunghi, mentre il nuovo sistema, grazie alla parallelizzazione, ha drasticamente
+    ridotto i tempi di esecuzione.\\ La stessa procedura di installazione che prima
+    richiedeva 2 minuti ora viene completata in 20 secondi. Questo miglioramento
+    ha un impatto significativo sulla produttività e sulla soddisfazione del
+    cliente.
+
+  \item Manutenibilità: La migrazione ad Ansible ha semplificato enormemente la
+    manutenzione del sistema.\\ La struttura modulare dei playbook Ansible e la
+    possibilità di gestire le configurazioni tramite file YAML rendono le
+    procedure di installazione molto più gestibili e facili da aggiornare
+    rispetto ai vecchi script.\\ Inoltre gli aggiornamenti e le modifiche
+    possono essere effettuati in modo più rapido e con meno rischi di errori.
+
+  \item Idempotenza: Il vecchio sistema non garantiva l'idempotenza, il che poteva
+    portare a configurazioni incoerenti e difficili da risolvere.\\ Con Ansible,
+    ogni playbook è idempotente per natura, garantendo che l'esecuzione ripetuta
+    delle stesse operazioni porti sempre allo stesso stato finale,
+    indipendentemente dallo stato iniziale.\\ Questo aumenta l'affidabilità e la
+    prevedibilità delle installazioni.
+\end{itemize}
+
+\section{Conclusioni tratte dall’esperienza di tirocinio e suggerimenti per
 futuri miglioramenti}
 \label{sec:suggerimenti}
+
+L'adozione della metodologia Agile, già in uso all'interno del team, ha
+facilitato la gestione del progetto e ha permesso una rapida adattabilità ai
+cambiamenti.\\ La migrazione ad Ansible e l'implementazione della
+parallelizzazione sono state esperienze altamente formative, che hanno dimostrato
+l'importanza dell'innovazione e dell'automazione nei processi aziendali.\\ Suggerimenti
+tecnici:
+\begin{itemize}
+  \item Documentazione accurata: Tenere una documentazione accurata del proprio
+    lavoro è fondamentale per garantire la continuità e per facilitare la
+    comprensione del progetto a nuovi membri del team.
+
+  \item Ottimizzazione continua della parallelizzazione: Sebbene i risultati
+    ottenuti siano stati molto positivi, ci sono ancora margini di miglioramento
+    nella gestione delle dipendenze e nella configurazione dei servizi.\\ Un'ulteriore
+    ottimizzazione della logica di parallelizzazione potrebbe portare a riduzioni
+    ancora maggiori nei tempi di esecuzione.
+
+  \item Monitoraggio e logging avanzato: Implementare un sistema di monitoraggio
+    e logging più avanzato per le procedure di installazione e aggiornamento
+    potrebbe aiutare a identificare e risolvere più rapidamente eventuali
+    problemi, migliorando ulteriormente l'affidabilità del sistema.
+\end{itemize}
+Suggerimenti sul fattore Agile e umano:
+\begin{itemize}
+  \item Collaborazione attiva: Partecipare attivamente alle riunioni di team e
+    ai daily stand-up per rimanere sempre aggiornati sugli sviluppi del progetto
+    e per contribuire con idee e feedback.
+
+  \item Formazione continua: Approfittare delle opportunità di formazione e
+    delle risorse aziendali per migliorare continuamente le proprie competenze
+    tecniche e metodologiche.
+
+  \item Proattività: Essere proattivi nel proporre soluzioni e miglioramenti, dimostrando
+    iniziativa e spirito di innovazione.
+
+  \item Feedback e miglioramento: Utilizzare il feedback ricevuto durante il
+    tirocinio per migliorare continuamente il proprio lavoro e adattarsi alle
+    esigenze del progetto e del team. In conclusione, il progetto ha dimostrato
+    come l'adozione di tecnologie moderne e metodologie agili possa portare a
+    significativi miglioramenti in termini di efficienza, manutenibilità e affidabilità.\\
+    L'esperienza acquisita durante il tirocinio sarà preziosa per affrontare future
+    sfide e per continuare a migliorare i processi aziendali.
+\end{itemize}

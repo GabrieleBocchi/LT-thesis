@@ -15,7 +15,7 @@ natura agentless, il che comporta l'assenza della necessità di installare
 software specifico sui nodi target. Questo garantisce un significativo abbattimento
 della complessità e dei requisiti di manutenzione, mentre si verificano
 contemporaneamente miglioramenti in termini di sicurezza e affidabilità delle
-operazioni.\\ Il linguaggio utilizzato per scrivere i playbook, ovvero i file che
+operazioni.\\ Il linguaggio utilizzato per scrivere i playbooks, ovvero i file che
 descrivono ciò che Ansible dovrà eseguire nei nodi target, è YAML, un linguaggio
 facilmente leggibile sia dagli umani che dalle macchine.\\ Attraverso l'utilizzo
 dei playbook, è possibile fornire una descrizione completa delle attività da
@@ -54,12 +54,12 @@ analizzare minuziosamente le caratteristiche e le fasi delle varie procedure.
 \label{sub:fasi_migrazione}
 
 Il processo di migrazione è stato tutt'altro che banale, spesso quando un
-problema sembrava risolto ne veniva alla luce un altro, è stato necessario dunque
-ricorrere a un approccio strutturato e metodico.\\ Inizialmente è stato un lungo
-lavoro di pianificazione per decidere come procedere, ma alla fine si è riusciti
-a redigere un piano operativo per riuscire efficientemente e, soprattutto, senza
-fermare lo sviluppo degli altri membri del team, a procedere per questo primo passo
-verso il miglioramento delle procedure di NetEye:
+problema sembrava risolto ne veniva alla luce un altro.\\ È stato necessario
+dunque ricorrere a un approccio strutturato e metodico.\\ Inizialmente è stato
+un lungo lavoro di pianificazione per decidere come procedere, ma alla fine si è
+riusciti a redigere un piano operativo per riuscire efficientemente a procedere verso
+il miglioramento delle procedure di NetEye, senza fermare lo sviluppo degli
+altri membri del team:
 \begin{enumerate}
   \item Creare il comando \texttt{neteye install}:
     \begin{itemize}
@@ -82,12 +82,13 @@ verso il miglioramento delle procedure di NetEye:
     \begin{itemize}
       \item Descrizione: Una volta verificato il corretto funzionamento di
         \texttt{neteye install}, il comando \texttt{neteye\_secure\_install} è stato
-        deprecato.
+        rimosso.
 
-      \item Transizione: Inizialmente, \texttt{neteye install} era posizionato
-        all'inizio del \texttt{neteye\_secure\_install}. Successivamente, \texttt{neteye\_secure\_install}
-        è stato spostato alla fine di \texttt{neteye install}, rendendo
-        superfluo il vecchio comando per l'utente.
+      \item Transizione: Inizialmente, \texttt{neteye install} veniva eseguito
+        all'inizio del \texttt{neteye\_secure\_install}. Successivamente, l'esecuzione
+        del comando \texttt{neteye\_secure\_install} è stata spostata alla fine
+        di \texttt{neteye install}, rendendo superfluo il precedente comando per
+        l'utente.
 
       \item Obiettivo: Eliminare il vecchio comando, semplificando la procedura di
         installazione e riducendo la complessità.
@@ -159,10 +160,10 @@ verso il miglioramento delle procedure di NetEye:
 \subsection{Metodo di sviluppo}
 \label{sub:sviluppo}
 
-Modificare una parte così centrale di un software grandissimo come NetEye è stata
-una sfida veramente complessa ma estremamente stimolante, essenziali sono stati
-gli strumenti messi a disposizione e che hanno affiancato lo sviluppo rendendo
-fattibile l'aggiunta e la modifica di codice.\\ Verranno ora brevemente
+Modificare una parte così centrale di un software vasto come NetEye è stata una
+sfida molto complessa ma estremamente stimolante.\\ Essenziali sono stati gli
+strumenti messi a disposizione e che hanno affiancato lo sviluppo rendendo
+possibile l'aggiunta e la modifica di codice.\\ Verranno ora brevemente
 illustrati:
 \begin{itemize}
   \item Jira: Strumento di gestione dei progetti e di tracciamento dei bug
@@ -211,11 +212,10 @@ illustrati:
 
 Non sono mancati i problemi durante le fasi della migrazione.\\ Poiché NetEye è un
 prodotto molto esteso e pieno di funzionalità, le difficoltà e il timore di
-creare problemi inizialmente non hanno contribuito al miglioramento delle
-procedure.\\ Con il passare dei giorni però la consapevolezza riguardo al
-funzionamento di NetEye è aumentata ed è stato possibile procedere con la
-migrazione.\\ Inoltre, durante le fasi transitorie si sono presentati numerosi problemi
-dovuti al fatto che si stavano modificando procedure che gli altri sviluppatori usavano
-da anni, ed è quindi stato necessario creare documenti e video al fine di
-documentare correttamente le modifiche, per gli attuali e futuri membri del team
-che lavoreranno con esse.
+creare problemi non hanno contribuito al miglioramento delle procedure.\\ Con il
+passare dei giorni però la consapevolezza riguardo al funzionamento di NetEye è
+aumentata ed è stato possibile procedere con la migrazione.\\ Inoltre, durante le
+fasi transitorie si sono presentati numerosi problemi dovuti al fatto che si stavano
+modificando procedure che gli altri sviluppatori usavano da anni, ed è quindi
+stato necessario creare documenti e video al fine di documentare correttamente
+le modifiche, per gli attuali e futuri membri del team che lavoreranno con esse.

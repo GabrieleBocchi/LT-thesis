@@ -21,43 +21,41 @@ d'uso e riuscendo a soddisfare al meglio le esigenze dei clienti.
 \label{sec:servizi_prodotti} Würth Phoenix offre servizi che spaziano dalle
 business application grazie a Microsoft Dynamics 365, servizi di threat intelligence
 e cybersecurity, fino a soluzioni di monitoraggio e systems management grazie al
-principale prodotto dell'azienda: NetEye.\\
+principale prodotto dell'azienda: NetEye.
 
 \subsection{Descrizione del software NetEye}
-\label{sub:neteye} NetEye è il principale prodotto di Würth Phoenix, sviluppato per
-poter fornire un monitoraggio completo e versatile delle reti aziendali.\\ È una
-piattaforma che combina una moltitudine di diverse funzionalità in un unico sistema,
-offrendo agli amministratori della rete una visione chiara e dettagliata dello
-stato dell'infrastruttura informatica dell'azienda.\\ NetEye può monitorare una
-vasta gamma di componenti, inclusi server, dispositivi di rete di qualunque
-genere, applicazioni e servizi.\\ È disponibile sia in versione on-premise,
-quindi direttamente nelle aziende dei clienti, sia in cloud, con il servizio
-NetEye Cloud che è equivalente alla prima opzione, ma che non richiede al cliente
-un'infrastruttura in azienda ad eccezione di piccole macchine chiamate "satelliti"
-che inviano tutti i dati a NetEye Cloud per poi essere processati e fornire tutti
-i report necessari. Grazie a questo sistema il cliente non si deve occupare
-della gestione e della manutenzione di tutta l'infrastruttura.\\ In aggiunta, l'installazione
-di NetEye è disponibile in due versioni: single node, il che significa che il software
-è installato in una sola macchina; e cluster, installato quindi in più macchine per
-poter garantire una potenza di calcolo molto più elevata e un monitoraggio High Availability,
-ciò si riferisce a una strategia di progettazione del sistema e alla sua
-implementazione per cui il sistema continua a funzionare anche nei casi in cui
-alcuni nodi dovessero avere problemi e che assicura un certo livello di
-prestazioni operative e tempo di funzionamento, solitamente superiore al 99,99\%.\\
-Può essere considerata a tutti gli effetti una distribuzione Linux poiché viene
-installata una versione custom di RHEL 8.10\footnote{RedHat Enterprise Linux
-website: \url{https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux}},
-ovvero RedHat Enterprise Linux, direttamente nelle macchine finali.\\ Inoltre è un
-prodotto estremamente modulare, ogni cliente può installare i moduli aggiuntivi
-che preferisce e utilizzare tutte le funzioni che mettono a disposizione.\\ La
-parte core di NetEye, dunque senza moduli aggiuntivi installati, fornisce
-principalmente monitoraggio; è composta da Icinga 2\footnote{Icinga 2 source
-code: \url{https://github.com/Icinga/icinga2}} e Icinga Web 2\footnote{Icinga
-Web 2 source code: \url{https://github.com/Icinga/icingaweb2}}, soluzioni open
-source sviluppate da Icinga Project, di cui Würth Phoenix è partner, e da
-Tornado\footnote{Tornado source code: \url{https://github.com/WuerthPhoenix/tornado}},
-un Event Processor che riceve dati da una fonte arbitraria e dopo averli
-analizzati, esegue azioni ed eventi di conseguenza.\\ Verranno ora analizzati i moduli
+\label{sub:neteye} NetEye è il principale prodotto di Würth Phoenix, sviluppato
+per poter fornire un monitoraggio completo e versatile delle reti aziendali.\\ È
+una piattaforma che combina una moltitudine di diverse funzionalità in un unico
+sistema, offrendo agli amministratori della rete una visione chiara e dettagliata
+dello stato dell'infrastruttura informatica dell'azienda.\\ NetEye può monitorare
+una vasta gamma di componenti, inclusi server, dispositivi di rete di qualunque genere,
+applicazioni e servizi.\\ È disponibile sia in versione on-premise, quindi direttamente
+nelle aziende dei clienti, sia in cloud, con il servizio NetEye Cloud che è equivalente
+alla prima opzione, ma che non richiede al cliente un'infrastruttura in azienda
+ad eccezione di piccole macchine chiamate "satelliti" che inviano tutti i dati a
+NetEye Cloud per poi essere processati e fornire tutti i report necessari. Grazie
+a questo sistema il cliente non si deve occupare della gestione e della manutenzione
+di tutta l'infrastruttura.\\ In aggiunta, l'installazione di NetEye è
+disponibile in due versioni: single node, il che significa che il software è
+installato in una sola macchina; e cluster, installato quindi in più macchine
+per poter garantire una potenza di calcolo molto più elevata e un monitoraggio
+High Availability, ciò si riferisce a una strategia di progettazione del sistema
+e alla sua implementazione per cui il sistema continua a funzionare anche nei casi
+in cui alcuni nodi dovessero avere problemi e che assicura un certo livello di prestazioni
+operative e tempo di funzionamento, solitamente superiore al 99,99\%.\\ Può essere
+considerata a tutti gli effetti una distribuzione Linux poiché viene installata una
+versione custom di RHEL 8.10\footnote{RedHat Enterprise Linux website: \url{https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux}},
+ovvero RedHat Enterprise Linux, direttamente nelle macchine finali.\\ Inoltre è
+un prodotto estremamente modulare, ogni cliente può installare i moduli aggiuntivi
+che preferisce e utilizzare tutte le funzioni che mettono a disposizione.\\ La parte
+core di NetEye, dunque senza moduli aggiuntivi installati, fornisce principalmente
+monitoraggio; è composta da Icinga 2\footnote{Icinga 2 source code: \url{https://github.com/Icinga/icinga2}}
+e Icinga Web 2\footnote{Icinga Web 2 source code: \url{https://github.com/Icinga/icingaweb2}},
+soluzioni open source sviluppate da Icinga Project, di cui Würth Phoenix è
+partner, e da Tornado\footnote{Tornado source code: \url{https://github.com/WuerthPhoenix/tornado}},
+un Event Processor che riceve dati da una fonte arbitraria e dopo averli analizzati,
+esegue azioni ed eventi di conseguenza.\\ Verranno ora analizzati i moduli
 aggiuntivi disponibili su NetEye:
 \begin{itemize}
   \item Alyvix\footnote{Alyvix website: \url{https://alyvix.com}}: È uno strumento
@@ -84,12 +82,12 @@ aggiuntivi disponibili su NetEye:
     una piattaforma centralizzata per la gestione dettagliata e il monitoraggio
     dei componenti hardware e software.\\ Grazie a questo strumento, è possibile
     tenere traccia dello stato, della posizione e delle proprietà degli asset, facilitando
-    una gestione accurata e aggiornata del parco informatico aziendale Oltre a GLPI,
-    il modulo di gestione degli asset di NetEye utilizza OCS Inventory (Open Computer
-    and Software Inventory Next Generation) per la scoperta automatizzata degli
-    asset e l'inventario.\\ OCS Inventory scansiona la rete per rilevare e
-    raccogliere dati sulle configurazioni hardware e software, riducendo la necessità
-    di inserimenti manuali e minimizzando gli errori.
+    una gestione accurata e aggiornata del parco informatico aziendale. Oltre a
+    GLPI, il modulo di gestione degli asset di NetEye utilizza OCS Inventory (Open
+    Computer and Software Inventory Next Generation) per la scoperta automatizzata
+    degli asset e l'inventario.\\ OCS Inventory scansiona la rete per rilevare e
+    raccogliere dati sulle configurazioni hardware e software, riducendo la
+    necessità di inserimenti manuali e minimizzando gli errori.
 
   \item Command Orchestrator: Questo è uno strumento fondamentale per l'automazione
     e il monitoraggio delle operazioni IT.\\ Integrato con Icinga, il Command Orchestrator
@@ -198,12 +196,12 @@ aggiuntivi disponibili su NetEye:
     risorse e molto altro.\\ I dati raccolti vengono poi visualizzati in un'interfaccia
     utente intuitiva all'interno di NetEye.
 \end{itemize}
-NetEye è multitenant, il che significa che l'infrastruttura monitorata può essere
-suddivisa in parti più piccole per poter dare, ai giusti dipendenti o
-supervisori, visibilità solo su ciò che è di loro competenza, si può facilmente
-immaginare con i settori di un'azienda, gestiti da manager diversi.\\ Come specificato
-precedentemente i cluster di NetEye sono High Availability, e ciò viene
-garantito da due software essenziali:
+NetEye è multitenant, il che significa che l'infrastruttura monitorata può
+essere suddivisa in parti più piccole per poter dare, ai giusti dipendenti o supervisori,
+visibilità solo su ciò che è di loro competenza. Si può facilmente immaginare come
+i settori di un'azienda, gestiti da manager diversi.\\ Come specificato
+precedentemente i cluster di NetEye sono High Availability, e ciò viene garantito
+da due software essenziali:
 \begin{itemize}
   \item PCS(Pacemaker/Corosync Cluster Stack): È uno strumento di gestione dei cluster
     sviluppato da Red Hat e utilizzato per configurare e controllare cluster High
@@ -232,7 +230,7 @@ garantito da due software essenziali:
     di dischi tra diversi nodi.\\ È utilizzato per garantire la disponibilità e l'integrità
     dei dati in ambienti clusterizzati.
 \end{itemize}
-Utilizzando assieme PCS e DRBD si riesce a garantire la creazione di sistemi robusti
-che possono resistere a guasti hardware senza interruzioni significative dei servizi.
-Un funzionamento di questo tipo è essenziale per i sistemi che utilizzano NetEye
-e che hanno bisogno di un monitoraggio continuo.
+Utilizzando assieme PCS e DRBD si riesce a garantire la creazione di sistemi
+robusti che possono resistere a guasti hardware senza interruzioni significative
+dei servizi. Un funzionamento di questo tipo è essenziale per i sistemi che utilizzano
+NetEye e che hanno bisogno di un monitoraggio continuo.

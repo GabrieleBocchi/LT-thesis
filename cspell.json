@@ -9,7 +9,12 @@
     "@cspell/dict-markdown/cspell-ext.json",
     "@cspell/dict-npm/cspell-ext.json"
   ],
-  "ignorePaths": ["**/build/", "**/node_modules/", "**/package-lock.json"],
+  "ignorePaths": [
+    "**/build/",
+    "**/node_modules/",
+    "**/bibliography.bib",
+    "**/package-lock.json"
+  ],
   "words": [
     "agentless",
     "Alyvix",
@@ -21,6 +26,7 @@
     "containerizzazione",
     "Corosync",
     "Dall'Idempotenza",
+    "dall’esperienza",
     "distro",
     "dropin",
     "Gabriele",
@@ -28,6 +34,7 @@
     "GLPI",
     "howpublished",
     "idempotente",
+    "idempotenti",
     "idempotenza",
     "Informatique",
     "latexmk",
@@ -41,6 +48,8 @@
     "ntopng",
     "outdir",
     "postbuild",
+    "proattivi",
+    "Proattività",
     "ripianificazione",
     "SIEM",
     "Würth"
