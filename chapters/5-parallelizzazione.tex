@@ -94,11 +94,29 @@ della cartella di quest'ultimo:
     L'importante è che i file e le cartelle obbligatori e opzionali siano
     presenti per garantire il corretto funzionamento della procedura.
 \end{itemize}
-All'inizio, la cartella della procedura viene scannerizzata alla ricerca dei
-file e delle cartelle menzionate precedentemente.\\ Il dizionario risultante, che
-contiene le informazioni su tutti i servizi e i loro componenti, viene quindi
-passato allo script di parallelizzazione.\\ Questo approccio permette a
-consulenti e clienti finali di modificare una determinata procedura
+Per illustrare concretamente i benefici ottenuti dalla migrazione ad Ansible e dall'implementazione
+della parallelizzazione, presentiamo un esempio dell'output del comando \texttt{tree}
+sulla cartella della procedura.\\ Figura \ref{fig:struttura_file_install} rappresenta
+la struttura dei file e delle cartelle che costituiscono una procedura tipica,
+evidenziando la presenza dei file \path{main.yml}, \path{post.yml}, \path{dependencies.json},
+e le cartelle \path{dropin.d}.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.3\textwidth]{images/tree_install.png}
+  \caption{Output del comando \texttt{tree} nella cartella della procedura di installazione.}
+  \label{fig:struttura_file_install}
+\end{figure}\\ Invece il flusso di esecuzione di un singolo servizio è mostrato in
+figura \ref{fig:nginx_flusso}.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=.3\textwidth]{images/single_service_flow.png}
+  \caption{Flusso di esecuzione del servizio nginx.}
+  \label{fig:nginx_flusso}
+\end{figure}\\ All'inizio, la cartella della procedura viene scannerizzata alla
+ricerca dei file e delle cartelle menzionate precedentemente.\\ Il dizionario
+risultante, che contiene le informazioni su tutti i servizi e i loro componenti,
+viene quindi passato allo script di parallelizzazione.\\ Questo approccio
+permette a consulenti e clienti finali di modificare una determinata procedura
 semplicemente cambiando file e cartelle all'interno della cartella principale
 della procedura, offrendo un alto livello di personalizzazione e adattabilità.
 
@@ -116,30 +134,26 @@ di questo servizio includerà una voce che indica che il servizio del database d
 essere installato e configurato prima.\\ Questo approccio garantisce che quando lo
 script di parallelizzazione inizia l'esecuzione, costruendo un grafo delle
 dipendenze, identifichi che il database debba essere operativo prima di procedere
-con l'installazione dell'applicazione dipendente.\\ La modularità introdotta da questo
-sistema facilita l'aggiornamento e la manutenzione dei singoli servizi, poiché
-le dipendenze possono essere facilmente modificate o aggiornate senza
-compromettere l'integrità dell'intera procedura.\\ In sintesi, la gestione accurata
-delle dipendenze non solo ottimizza i tempi di installazione ma garantisce anche
-che tutti i componenti del sistema siano configurati correttamente e pronti per l'uso,
-migliorando così la robustezza e l'affidabilità dell'intero ambiente NetEye.
-
-\section{Esempi e risultati ottenuti}
-\label{sec:esempi_risultati}
-
-Per illustrare concretamente i benefici ottenuti dalla migrazione ad Ansible e dall'implementazione
-della parallelizzazione, presentiamo un esempio dell'output del comando \texttt{tree}
-sulla cartella della procedura.\\ Questa visualizzazione mostrerà la struttura dei
-file e delle cartelle che costituiscono una procedura tipica, evidenziando la
-presenza dei file \path{main.yml}, \path{post.yml}, \path{dependencies.json}, e
-le cartelle \path{dropin.d}.
-\begin{figure}[h]
+con l'installazione dell'applicazione dipendente. Possiamo vedere in figura
+\ref{fig:dipendenze_database} un tale esempio, esteso alla configurazione di un'applicazione
+web.
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=.3\textwidth]{images/tree_install.png}
-  \caption{Output del comando \texttt{tree} nella cartella della procedura di installazione}
-  \label{fig:struttura_file_install}
-\end{figure}\\ Quella appena presentata è solamente la parte iniziale della migrazione
-degli script verso una procedura completamente parallelizzata ma risulta già possibile
-notare un miglioramento, poiché il tempo necessario alla loro esecuzione prima
-di queste modifiche era di circa due minuti, ora invece si è ridotto a circa venti
-secondi.
+  \includegraphics[width=1\textwidth]{images/dipendenze_database.png}
+  \caption{Grafo di dipendenze per la configurazione di un applicazione web.\\
+  Le frecce indicano l'ordine di esecuzione.}
+  \label{fig:dipendenze_database}
+\end{figure}\\ La modularità introdotta da questo sistema facilita l'aggiornamento
+e la manutenzione dei singoli servizi, poiché le dipendenze possono essere
+facilmente modificate o aggiornate senza compromettere l'integrità dell'intera
+procedura.\\ In sintesi, la gestione accurata delle dipendenze non solo ottimizza
+i tempi di installazione ma garantisce anche che tutti i componenti del sistema siano
+configurati correttamente e pronti per l'uso, migliorando così la robustezza e l'affidabilità
+dell'intero ambiente NetEye.
+
+\subsection{Esempi e risultati ottenuti}
+\label{sub:esempi_risultati} Quella appena presentata è solamente la parte
+iniziale della migrazione degli script verso una procedura completamente
+parallelizzata ma risulta già possibile notare un miglioramento, poiché il tempo
+necessario alla loro esecuzione prima di queste modifiche era di circa due minuti,
+ora invece si è ridotto a circa venti secondi.
